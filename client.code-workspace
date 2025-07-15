@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "client"
+		},
+		{
+			"path": "netlify"
+		},
+		{
+			"path": "public"
+		},
+		{
+			"path": "server"
+		},
+		{
+			"path": "shared"
+		},
+		{
+			"path": ".cursor"
+		}
+	]
+}
