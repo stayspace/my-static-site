@@ -1,0 +1,333 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 152 100% 22%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 152 30% 96%;
+    --secondary-foreground: 152 100% 22%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 152 30% 95%;
+    --accent-foreground: 152 100% 22%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Optimize font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+
+    /* Improve scrolling performance */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+  }
+
+  /* Mobile optimizations */
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-600;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Mobile responsive improvements */
+  @media (max-width: 640px) {
+    body {
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      line-height: 1.2;
+      word-wrap: break-word;
+      hyphens: auto;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      min-height: 44px;
+    }
+
+    /* Prevent horizontal overflow */
+    * {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Responsive containers */
+    .container,
+    .max-w-7xl,
+    .max-w-6xl,
+    .max-w-5xl,
+    .max-w-4xl,
+    .max-w-3xl {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Responsive text sizes */
+    .text-5xl,
+    .text-6xl {
+      font-size: 2.5rem;
+      line-height: 1.1;
+    }
+
+    .text-4xl {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .text-3xl {
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+
+    /* Responsive spacing */
+    .py-20 {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .py-16 {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    /* Responsive navigation */
+    nav {
+      position: relative;
+      width: 100%;
+    }
+
+    /* Responsive cards and grids */
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  /* Performance optimizations */
+  .transform,
+  .transition {
+    will-change: transform;
+  }
+}
+
+/* Global mobile responsiveness */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Prevent wide elements from causing horizontal scroll */
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive tables */
+table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Responsive flex and grid layouts */
+  .flex {
+    flex-wrap: wrap;
+  }
+
+  .grid {
+    width: 100%;
+  }
+
+  /* Responsive padding and margins */
+  .px-8 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+
+  /* Enhanced mobile navigation */
+  nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Better button spacing on mobile */
+  .space-x-4 > * + * {
+    margin-left: 0.5rem;
+  }
+
+  /* Responsive footer buttons */
+  .min-w-\[280px\] {
+    min-width: auto;
+    width: 100%;
+  }
+
+  /* Prevent text overflow */
+  .text-5xl,
+  .text-6xl {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Better form inputs on mobile */
+  input,
+  textarea,
+  select {
+    width: 100%;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  /* Responsive cards */
+  .rounded-xl {
+    border-radius: 0.75rem;
+  }
+
+  /* Better touch targets */
+  a,
+  button {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
